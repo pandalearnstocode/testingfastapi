@@ -1,0 +1,1 @@
+docker run -d -p 80:80 fastapi_tf_gpu
