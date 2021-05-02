@@ -1,3 +1,6 @@
 *.csv
 *.csv.gzip
 data
+*.pickle
+*.parquet
+*.parquet.gzip
