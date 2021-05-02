@@ -18,18 +18,18 @@ PYMMM_VERSION = "0.0.1"
 app = FastAPI()
 
 
-# @app.post("/savefile")
-# def save(file: UploadFile = File(...)):
-#     gpu_check()
-#     data_dir = pathlib.Path(os.path.join(".", "data"))
-#     if file.filename.endswith(".csv"):
-#         csv_reader = csv.reader(codecs.iterdecode(file.file, "utf-8"))
-#         df = pd.DataFrame(csv_reader)
-#         model_id = joblib.hash(df)
-#         file_name = model_id + ".csv"
-#         file_full_path = pathlib.Path(os.path.join(data_dir, file_name))
-#         df.to_csv(f"{file_full_path}", index=None)
-#         return model_id
+@app.post("/savefile")
+def save(file: UploadFile = File(...)):
+    gpu_check()
+    data_dir = pathlib.Path(os.path.join(".", "data"))
+    if file.filename.endswith(".csv"):
+        csv_reader = csv.reader(codecs.iterdecode(file.file, "utf-8"))
+        df = pd.DataFrame(csv_reader)
+        model_id = joblib.hash(df)
+        file_name = model_id + ".csv"
+        file_full_path = pathlib.Path(os.path.join(data_dir, file_name))
+        df.to_csv(f"{file_full_path}", index=None)
+        return model_id
 
 
 @app.get("/model/{model_id}")
@@ -61,9 +61,7 @@ def train_model_1(raw_req: RawRequest):
     request_file_name = model_hash + "_request.json"
     response_file_name = model_hash + "_response.json"
     model_file_name = model_hash + "_model.pickle"
-    data_info_file_name = model_hash + "_data_info.json"
     req_path = pathlib.Path(os.path.join(".","IO", country,"request",request_file_name))
-    # meta_data_path = pathlib.Path(os.path.join(".","meta_data", data_info_file_name))
     model_path  = pathlib.Path(os.path.join(".","model", country,model_file_name))
     res_path = pathlib.Path(os.path.join(".","IO", country,"response",response_file_name))
     if not res_path.is_file():

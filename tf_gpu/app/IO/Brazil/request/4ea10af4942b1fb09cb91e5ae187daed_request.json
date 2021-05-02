@@ -1,1 +1,82 @@
-{"raw_req": {"country": "Brazil", "use_files": ["holidays_data", "macroeconomic_data", "media_data", "pos_data", "power_data"], "file_types": "csv", "hierarchy_columns": ["ZONE", "SHARED", "BRAND", "PRODUCT"], "shared_column": "SHARED", "brand_column": "BRAND", "date_column": "TIMEDESC", "revenue_column": "SALES IN DOLLAR VALUE", "vehicle_column": "VEHICLE", "sub_vehicle_column": "SUBTYPE", "spend_column": "SPEND", "raw_power_columns": ["time_looker_dimdate_ref", "display_brand_name", "measure_name_displayed", "score"], "n_simulated_environments": 2, "n_train": 2, "min_contiguous": 6, "dbg": true, "visualize": 0, "COVID_CUTOFF": "2020-01-01", "dynamics_layers": [{"name": "socialmedia", "veh": "socialmedia", "curve_style": "sigmoid", "mix_cols": []}, {"name": "radio", "veh": "radio", "curve_style": "sigmoid", "mix_cols": []}, {"name": "opentv", "veh": "opentv", "curve_style": "sigmoid", "mix_cols": []}, {"name": "ooh", "veh": "ooh", "curve_style": "sigmoid", "mix_cols": []}]}, "filtered_data_info": {"88c2d9cd7dc000f1fbec1cd51dbdf86d": {"media_data": "data/Brazil/compressed_data/88c2d9cd7dc000f1fbec1cd51dbdf86d_media_data.parquet.gzip"}, "e1bf3ee97d1a509b10eb7e49119a641b": {"power_data": "data/Brazil/compressed_data/e1bf3ee97d1a509b10eb7e49119a641b_power_data.parquet.gzip"}, "d82745ada0db05bf313854814c176319": {"holidays_data": "data/Brazil/compressed_data/d82745ada0db05bf313854814c176319_holidays_data.parquet.gzip"}, "ba0aa18e17d644bb24ec5a6115d320f1": {"macroeconomic_data": "data/Brazil/compressed_data/ba0aa18e17d644bb24ec5a6115d320f1_macroeconomic_data.parquet.gzip"}, "fb940f2d18fd8b96d01158424a2e4b96": {"pos_data": "data/Brazil/compressed_data/fb940f2d18fd8b96d01158424a2e4b96_pos_data.parquet.gzip"}}, "code_version": "0.0.1"}
+{
+    "raw_req": {
+        "country": "Brazil",
+        "use_files": [
+            "holidays_data",
+            "macroeconomic_data",
+            "media_data",
+            "pos_data",
+            "power_data"
+        ],
+        "file_types": "csv",
+        "hierarchy_columns": [
+            "ZONE",
+            "SHARED",
+            "BRAND",
+            "PRODUCT"
+        ],
+        "shared_column": "SHARED",
+        "brand_column": "BRAND",
+        "date_column": "TIMEDESC",
+        "revenue_column": "SALES IN DOLLAR VALUE",
+        "vehicle_column": "VEHICLE",
+        "sub_vehicle_column": "SUBTYPE",
+        "spend_column": "SPEND",
+        "raw_power_columns": [
+            "time_looker_dimdate_ref",
+            "display_brand_name",
+            "measure_name_displayed",
+            "score"
+        ],
+        "n_simulated_environments": 2,
+        "n_train": 2,
+        "min_contiguous": 6,
+        "dbg": true,
+        "visualize": 0,
+        "COVID_CUTOFF": "2020-01-01",
+        "dynamics_layers": [
+            {
+                "name": "socialmedia",
+                "veh": "socialmedia",
+                "curve_style": "sigmoid",
+                "mix_cols": []
+            },
+            {
+                "name": "radio",
+                "veh": "radio",
+                "curve_style": "sigmoid",
+                "mix_cols": []
+            },
+            {
+                "name": "opentv",
+                "veh": "opentv",
+                "curve_style": "sigmoid",
+                "mix_cols": []
+            },
+            {
+                "name": "ooh",
+                "veh": "ooh",
+                "curve_style": "sigmoid",
+                "mix_cols": []
+            }
+        ]
+    },
+    "filtered_data_info": {
+        "88c2d9cd7dc000f1fbec1cd51dbdf86d": {
+            "media_data": "data/Brazil/compressed_data/88c2d9cd7dc000f1fbec1cd51dbdf86d_media_data.parquet.gzip"
+        },
+        "e1bf3ee97d1a509b10eb7e49119a641b": {
+            "power_data": "data/Brazil/compressed_data/e1bf3ee97d1a509b10eb7e49119a641b_power_data.parquet.gzip"
+        },
+        "d82745ada0db05bf313854814c176319": {
+            "holidays_data": "data/Brazil/compressed_data/d82745ada0db05bf313854814c176319_holidays_data.parquet.gzip"
+        },
+        "ba0aa18e17d644bb24ec5a6115d320f1": {
+            "macroeconomic_data": "data/Brazil/compressed_data/ba0aa18e17d644bb24ec5a6115d320f1_macroeconomic_data.parquet.gzip"
+        },
+        "fb940f2d18fd8b96d01158424a2e4b96": {
+            "pos_data": "data/Brazil/compressed_data/fb940f2d18fd8b96d01158424a2e4b96_pos_data.parquet.gzip"
+        }
+    },
+    "code_version": "0.0.1"
+}
