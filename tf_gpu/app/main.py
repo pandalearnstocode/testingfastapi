@@ -10,6 +10,7 @@ from utils import RawRequest
 from utils import compress_files
 from utils import train_tf_model
 from utils import model_response
+import glob
 import json
 import pickle
 
@@ -34,12 +35,22 @@ def save(file: UploadFile = File(...)):
 
 @app.get("/model/{model_id}")
 def read_item(model_id):
-    gpu_check()
-    data_dir = pathlib.Path(os.path.join(".", "data"))
-    file_name = model_id + ".csv"
-    file_full_path = pathlib.Path(os.path.join(data_dir, file_name))
-    df = pd.read_csv(file_full_path)
-    return {"df_heads": df.columns.tolist()}
+    response_file_name = model_id + "_response.json"
+    json_files = glob.glob(f"**/*.json", recursive=True)
+    for json_file in json_files:
+        if json_file.find(response_file_name) > 0:
+            print("*********************")
+            print("Using cached results.")
+            print("*********************")
+            with open(json_file, 'r') as fp:
+                model_res_obj = json.load(fp)
+    return {
+        "request_file_name": None,
+        "response_file_name": None,
+        "model_file_name": None,
+        "model_id":model_id,
+        "model_response":model_res_obj
+    }
 
 
 @app.post("/train_model")
