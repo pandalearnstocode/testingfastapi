@@ -13,7 +13,7 @@
 11. Generate & publish wily report
 12. Test coverage report generate and publish
 13. Python library docs generate and publish
-
+14. Can we come up with the single number to measure the goodness of fit at high level
 
 
 # Data
